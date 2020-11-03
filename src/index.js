@@ -51,7 +51,7 @@ app.put("/users/:id", validateUserId, (request, response) => {
 
   users[userIndex] = user;
 
-  return response.json(project);
+  return response.json(user);
 });
 
 app.delete("/users/:id", validateUserId, (request, response) => {
