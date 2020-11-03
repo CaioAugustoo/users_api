@@ -24,7 +24,7 @@ app.get("/users", (request, response) => {
 
 app.post("/users", (request, response) => {
   const { name, age, gender, company, email, picture } = request.body;
-  const user = { id: uuid(), name, age, gender, company, email };
+  const user = { id: uuid(), name, age, gender, company, email, picture };
 
   users.push(user);
   return response.json(user);
@@ -32,7 +32,7 @@ app.post("/users", (request, response) => {
 
 app.put("/users/:id", validateUserId, (request, response) => {
   const { id } = request.params;
-  const { name, age, gender, company, email } = request.body;
+  const { name, age, gender, company, email, picture } = request.body;
 
   const userIndex = users.findIndex(user => user.id === id);
 
@@ -46,6 +46,7 @@ app.put("/users/:id", validateUserId, (request, response) => {
     gender,
     company,
     email,
+    picture,
   };
 
   users[userIndex] = user;
